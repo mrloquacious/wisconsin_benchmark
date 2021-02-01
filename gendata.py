@@ -2,13 +2,22 @@
 import random
 import csv
 import pandas as pd
-#import numpy as np
+import argparse
 
 ATTR = ["unique1","unique2","two","four","ten","twenty","onePercent",
         "tenPercent","twentyPercent","fiftyPercent","unique3",
         "evenOnePercent","oddOnePercent","stringu1","stringu2","string4"]
 MODBY = [2,4,10,20,100,10,5,2]
 STRING4 = ["AAAA","HHHH","OOOO","VVVV"]
+
+ap = argparse.ArgumentParser()
+ap.add_argument(
+    "-n", "--number",
+    help="Number of records to generate.",
+    type=int,
+    default=10000,
+)
+args = ap.parse_args()
 
 # For unique1 and unique3 sets:
 def gen_unique1(num):
@@ -93,7 +102,7 @@ def create_csv(data):
 
 
 def main():
-    data = generate_data(10000)
+    data = generate_data(args.number)
     create_csv(data)
 
 if __name__ == "__main__":
