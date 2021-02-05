@@ -28,26 +28,14 @@ Boot Disk: 10 GB ubuntu-2004-focal-v20210129 Standard persistent disk.
 ```
 ## Process
 
-* **Data Generation:** It quickly became clear that writing code to generate the data would be preferable to stumbling around on the internet searching for a site to do the task. The data generation was extremely straightforward except in the case of stringu1 and stringu2 which took a little effort to understand and implement. We used the script gendata.py in this repo to generate the data.
+* **Data Generation:** It quickly became clear that writing code to generate the data would be preferable to stumbling around on the internet searching for a site to do the task. The data generation was extremely straightforward except in the case of stringu1 and stringu2 which took a little effort to understand and implement. We used the script gendata.py in this repo to generate the data. In order to verify the data was as expected (within reason), we summed each column of ints and compared that to the expected total. For the string data, we simply performed a visual scan of certain sections.  
 
 * **RDBMS Comparison:** We chose two popular open source RDBM systems to compare, in part due to our familiarity with the systems. At first glance they're very similar, but how do these two well established open source RDBM systems stack up when we compare performance using a benchmark?
 
-* **Demonstrate Data:** You'll see documents in our repo entitled [MariaDB Demo](mariadb_data_demo.pdf) and [PostgreSQL Demo](postgresql_demo.pdf)
+* **Demonstrate Data:** You'll see documents in our repo that document samples of the data: [MariaDB Demo](mariadb_data_demo.pdf) and [PostgreSQL Demo](postgresql_demo.pdf)
 
-* **Lessons Learned:** We installed MariaDB with ease, but chose to create a new user so we would not run as root. A cut and paste error (watch out for newlines!) led to the creation of user 'admin' with password 'password' — not ideal. It was trickier than expected to delete this user (DROP USER) due to  the need to specify ‘admin’@’localhost’ rather than simply 'admin, but I'll chalk this all up to user error.  
-Additionally, we needed to adjust the scripts used to import the data into each system due to slight differences in sytax between MariaDB and PostgreSQL.
+* **Lessons Learned:** The virtual machine setup and configuration was a familiar process and went quite smoothly.
+We installed MariaDB with ease, but chose to create a new user so we would not run as root. A cut and paste error (watch out for newlines!) led to the creation of user 'admin' with password 'password' — not ideal. It was trickier than expected to delete this user (DROP USER) due to the need to specify 'admin'@'localhost' rather than simply 'admin', but we'll chalk this all up to user error.  
+Another issue was that on the first attempt to import the data into MariaDB, only half of the 10K data set made it into the DB. Luckily, after dropping the tables and re-importing, the second attempt was successful. Why the first attempt failed remains a mystery. 
+Finally, we needed to adjust the scripts used to import the data into each system due to slight differences in sytax between MariaDB and PostgreSQL.  
 
-
-<!--
-  <ol type="a">
-  <li> Data Generation: It quickly became clear that writing code to generate the data would be preferable to stumbling around on the internet searching for a site to do the task. The data generation was extremely straightforward except in the case of stringu1 and stringu2 which took a little effort to understand and implement. We used the script gendata.py in this repo to generate the data. </li>
-  
-  <li> RDBMS Comparison: We chose two popular open source RDBM systems to compare, in part due to our familiarity with the systems. At first glance they're very similar, but how do these two well established open source RDBM systems stack up when we compare performance using a benchmark? </li>
-
-  <li> Demonstrate Data: You'll see documents in our repo entitled [MariaDB Demo](mariadb_data_demo.sql) and [PostgreSQL Demo](postgresql_demo.pdf) </li>
-
-  <li> Lessons Learned: We installed MariaDB with ease, but chose to create a new user so we would not run as root. A cut and paste error (watch out for newlines!) led to the creation of user 'admin' with password 'password' — not ideal. It was trickier than expected to delete this user (DROP USER) due to  the need to specify ‘admin’@’localhost’ rather than simply 'admin, but I'll chalk this all up to user error.
-  Additionally, we needed to adjust the scripts used to import the data into each system due to slight differences in sytax between MariaDB and PostgreSQL.
-  </li>
-</ol>
--->
