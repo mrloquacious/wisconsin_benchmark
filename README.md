@@ -35,7 +35,7 @@ Boot Disk: 10 GB ubuntu-2004-focal-v20210129 Standard persistent disk.
 * **Demonstrate Data:** These documents in our repo show samples of the data: [MariaDB Demo](mariadb_data_demo.pdf) and [PostgreSQL Demo](postgresql_data_demo.png)
 
 * **Lessons Learned:** First, the virtual machine setup and configuration was a familiar process and went quite smoothly.
-Next, we installed MariaDB with ease, but chose to create a new user so we would not run as root. A cut and paste error (watch out for newlines!) led to the creation of user `admin` with password `password` — not ideal. It was trickier than expected to delete this user (`DROP USER`) due to the need to specify `'admin'@'localhost'` rather than simply `'admin'`, but we'll chalk this all up to user error.  
+Next, we installed `MariaDB` with ease, but chose to create a new user so we would not run as root. A cut and paste error (watch out for newlines!) led to the creation of user `admin` with password `password` — not ideal. It was trickier than expected to delete this user (`DROP USER`) due to the need to specify `'admin'@'localhost'` rather than simply `'admin'`, but we'll chalk this all up to user error.  
 In the first attempt to import the data into `MariaDB`, only half of the 10K data set made it into the DB. Luckily, after dropping the tables and re-importing, the second attempt was successful. Why the first attempt failed remains a mystery. 
 Additionally, we needed to adjust the scripts used to import the data into each system due to slight differences in sytax between `MariaDB` and `PostgreSQL`.  
 
