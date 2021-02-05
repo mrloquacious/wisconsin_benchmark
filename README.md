@@ -32,7 +32,7 @@ Boot Disk: 10 GB ubuntu-2004-focal-v20210129 Standard persistent disk.
 
 * **RDBMS Comparison:** We chose two popular open source RDBM systems to compare, in part due to our familiarity with the systems. At first glance they're very similar, but how do these two well established open source RDBM systems stack up when we compare performance using a benchmark?
 
-* **Demonstrate Data:** You'll see documents in our repo that document samples of the data: [MariaDB Demo](mariadb_data_demo.pdf) and [PostgreSQL Demo](postgresql_demo.pdf)
+* **Demonstrate Data:** You'll see documents in our repo that document samples of the data: [MariaDB Demo](mariadb_data_demo.pdf) and [PostgreSQL Demo](postgresql_data_demo.png)
 
 * **Lessons Learned:** The virtual machine setup and configuration was a familiar process and went quite smoothly.
 We installed MariaDB with ease, but chose to create a new user so we would not run as root. A cut and paste error (watch out for newlines!) led to the creation of user 'admin' with password 'password' — not ideal. It was trickier than expected to delete this user (DROP USER) due to the need to specify 'admin'@'localhost' rather than simply 'admin', but we'll chalk this all up to user error.  
