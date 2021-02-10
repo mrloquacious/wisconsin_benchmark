@@ -2,6 +2,9 @@
 *.swp
 *.xlsx
 *.html
+README.pdf
+wb_data_1000000*
+
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

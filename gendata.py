@@ -3,6 +3,7 @@ import random
 import csv
 import pandas as pd
 import argparse
+from datetime import date
 
 ATTR = ["unique1","unique2","two","four","ten","twenty","onePercent",
         "tenPercent","twentyPercent","fiftyPercent","unique3",
@@ -95,15 +96,18 @@ def generate_data(num):
     return data
 
 # Use to combine all attributes into a 2d list:
-def create_csv(data):
+def create_csv(data, number):
     df = pd.DataFrame(data, index=None)
     df = df.transpose()
-    df.to_csv('wb_data.csv', index=None, header=False)
+    today = date.today()
+    the_date = today.strftime("%Y_%m_%d")
+    filename = "wb_data_" + str(number) + "_" + the_date + ".csv" 
+    df.to_csv(filename, index=None, header=False)
 
 
 def main():
     data = generate_data(args.number)
-    create_csv(data)
+    create_csv(data, args.number)
 
 if __name__ == "__main__":
     main()
