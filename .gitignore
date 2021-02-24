@@ -4,6 +4,8 @@
 *.html
 README.pdf
 wb_data_1000000*
+wb_data_1M*
+~$*
 
 
 # Byte-compiled / optimized / DLL files
